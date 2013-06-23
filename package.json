@@ -1,0 +1,22 @@
+{
+  "name": "openshop",
+  "version": "0.3.2",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.x.x",
+    "jade": "0.31.x",
+    "helmet": "0.0.9",
+    "connect-orientdb": "1.3.x",
+    "orientdb": "1.3.x",
+    "node-uuid":"1.x.x",
+    "validator": "0.4.x",
+    "async": "0.1.x",
+    "stylus": ">= 0.29.x",
+    "fb":"*",
+    "underscore":"*",
+    "templatizer":"*"
+  }
+}

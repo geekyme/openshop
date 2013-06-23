@@ -1,0 +1,122 @@
+/*
+  Mixins
+*/
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+/*font-family "Open Sans", Helvetica, Arial, sans-serif !important*/
+  padding-top: 40px;
+  height: 100%;
+  width: 100%;
+}
+#main-body {
+  height: 100%;
+}
+#main-body #container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#main-body #shop-category,
+#main-body #item-container {
+  padding-top: 20px;
+}
+.btn {
+  margin-right: 20px !important;
+  cursor: pointer;
+}
+.white-fade {
+  background: rgba(255,255,255,0.5);
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+.plain {
+  text-decoration: none !important;
+}
+.footer {
+  background: #fff !important;
+  margin-top: 30px;
+  padding: 10px 0% 10px 0%;
+  color: #999;
+  border-top: solid 1px #ddd;
+}
+.landing {
+  background: url("../img/accessories_bg.jpg");
+  background-size: 100% auto;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+.landing .area {
+  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+}
+.landing .area .copy {
+  text-align: center;
+  width: 50%;
+  min-width: 300px;
+  margin: auto;
+  padding: 20px;
+  background: #000;
+  color: #fff;
+}
+.thumbnail {
+  -webkit-box-shadow: 0 0 0 1px #e6e6e6;
+  -moz-box-shadow: 0 0 0 1px #e6e6e6;
+  -o-box-shadow: 0 0 0 1px #e6e6e6;
+  -ms-box-shadow: 0 0 0 1px #e6e6e6;
+  box-shadow: 0 0 0 1px #e6e6e6;
+  cursor: pointer;
+  position: relative;
+  width: 270px;
+  overflow: hidden;
+}
+.thumbnail .item-actions {
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 100;
+}
+.thumbnail .item-actions button {
+  position: relative;
+  margin-right: 20px;
+}
+.thumbnail:hover .item-actions {
+  display: inline;
+}
+.thumbnail:hover img {
+  -webkit-transition: opacity 0.2s ease-in;
+  -moz-transition: opacity 0.2s ease-in;
+  -o-transition: opacity 0.2s ease-in;
+  -ms-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
+  opacity: 0.35;
+}
+.categories {
+  width: inherit;
+}
+.categories li a {
+  margin: 0 0 -1px;
+  padding: 8px 14px;
+  border: 1px solid #e5e5e5;
+}
+.categories li a [class^='icon-'] {
+  float: right;
+  margin-top: 2px;
+  margin-right: -6px;
+  opacity: 0.25;
+}

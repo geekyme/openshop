@@ -1,0 +1,20 @@
+include ../mixins/field
+
+form#item-create-form.form-horizontal.span12
+	input#imgSrc(type='hidden', name='imgSrc', value='#{item.imgSrc}')
+	fieldset
+		legend Item Details
+		br
+		.row-fluid
+			.span8
+				mixin field('text', 'name', 'Name', item.name,'Item name')
+				mixin field('textarea', 'desc', 'Description', item.desc, 'Give a detailed description of your item')
+				//- mixin field('date', 'expire', 'Expiry Date', expire)
+				mixin field('price', 'price', 'Price', item.price)
+				//- mixin field('text', 'savings', 'Cost Savings', savings,'% savings or $ reduction')
+				mixin field('select', 'category', 'Category', item.category, item.categories)
+			.span4
+				#dropzone.well.dropzone(style='width: 50%; height: 100%; text_align: center; margin: 0px auto;')
+	.form_actions
+		button.btn.btn-success.save(type='button') Save
+		button.btn.btn-warning.clear(type='button') Clear All

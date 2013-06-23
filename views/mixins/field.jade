@@ -1,0 +1,30 @@
+mixin field(type, name, label, value, other)
+	.control-group
+		label.control-label(for='#{name}') #{label}:
+		.controls
+			case type
+				when 'text'
+					input(id='#{name}', type='text', name='#{name}', value='#{value}', placeholder='#{other}', required)
+					span.help-inline
+				when 'textarea'
+					textarea(id='#{name}', rows='10', style="width:100%;", name='#{name}',placeholder='#{other}',  required)
+						| #{value}
+				when 'date'
+					.input-append.date(id='#{name}', data-date='', data-date-format='dd-mm-yyyy', data-provide="datepicker")
+						input(name='#{name}', size='16', type='text', value='#{value}',  required)
+						span.add-on
+							i.icon-calendar
+				when 'price'
+					.input-prepend
+						span.add-on $
+						input#prependedInput(id='#{name}', type='number', step='0.01', min='0', name='#{name}', value='#{value}', required)
+				when 'select'
+					select(id='#{name}', name='#{name}', required)
+						each category in other
+							if(value == category.short)
+								option(value="#{category.short}", selected="selected")= category.name
+							else
+								option(value="#{category.short}")= category.name
+
+
+

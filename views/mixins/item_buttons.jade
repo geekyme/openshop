@@ -1,0 +1,29 @@
+mixin button(type, url)
+	case type
+		when 'delete'
+			button.btn.btn-danger.delete(type='button')
+				i.icon-trash
+				|  Delete
+		when 'edit'
+			button.btn.update(type='button')
+				i.icon-edit-sign
+				|  Edit
+		when 'remove'
+			button.btn.btn-danger.remove(type='button')
+				i.icon-remove-sign
+				|  Remove
+		when 'more'
+			a.btn.more(href=url, data-trigger="false")
+				i.icon-expand-alt
+				|  More
+		when 'like'
+			button.btn.btn-primary.like(type="button")
+				i.icon-heart
+				|  Like
+		when 'cart'
+			button.btn.btn-success.addToCart(type="button")
+				i.icon-shopping-cart
+				|  Add to Cart
+		default
+			button.btn(type='button')
+				| Default

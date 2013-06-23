@@ -1,0 +1,152 @@
+/*
+  Mixins
+*/
+border-radius()
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  -o-border-radius arguments
+  -ms-border-radius arguments
+  border-radius arguments
+
+box-shadow()
+  -webkit-box-shadow arguments
+  -moz-box-shadow arguments
+  -o-box-shadow arguments
+  -ms-box-shadow arguments
+  box-shadow arguments
+
+transition()
+  -webkit-transition arguments
+  -moz-transition arguments
+  -o-transition arguments
+  -ms-transition arguments
+  transition arguments
+
+linearGradient(color1, color2)
+  background-color color1
+  background-image -moz-linear-gradient(top, color2, color1)
+  background-image -webkit-gradient(linear, 0 0, 0 100%, from(color2), to(color1))
+  background-image -webkit-linear-gradient(top, color2, color1)
+  background-image -o-linear-gradient(top, color2, color1)
+  background-image linear-gradient(to bottom, color2, color1)
+  background-repeat repeat-x  
+
+radialGradient(inner, outer)
+  background-image -moz-radial-gradient(cover, inner, outer)
+  background-image -webkit-radial-gradient(cover, inner, outer)
+  background-image -o-radial-gradient(cover, inner, outer)
+  background-image -ms-radial-gradient(cover, inner, outer)
+  background-image radial-gradient(cover, inner, outer)
+
+box-sizing()
+  -webkit-box-sizing arguments
+  -moz-box-sizing arguments
+  -ms-box-sizing arguments
+  -o-box-sizing arguments
+  box-sizing arguments
+
+transform()
+  -webkit-transform arguments
+  -moz-transform arguments
+  -ms-transform arguments
+  -o-transform arguments
+  transform arguments
+
+html
+	height 100%
+	width 100%
+
+body
+	/*font-family "Open Sans", Helvetica, Arial, sans-serif !important*/
+	padding-top 40px
+	height 100%
+	width 100%
+
+#main-body
+	height 100%
+	#container
+		overflow-y scroll
+		overflow-x hidden
+	#shop-category, #item-container
+		padding-top 20px
+
+.btn
+	margin-right 20px !important
+	cursor pointer
+
+.white-fade
+	background hsla(0,0,100%,0.5)
+	height 100%
+	box-sizing border-box
+
+@media (max-width: 979px) 
+	body 
+		padding-top 0px
+  
+.plain
+	text-decoration none !important
+
+.footer
+	background white !important
+	margin-top 30px
+	padding 10px 0% 10px 0%
+	color #999
+	border-top solid 1px #ddd
+
+.landing
+	background url('../img/accessories_bg.jpg')
+	background-size 100% auto
+	background-position center center
+	width 100%
+	height 100%
+	display table
+	.area
+		width 100%
+		display table-cell
+		vertical-align middle		
+		height 100%
+		.copy
+			text-align center
+			width 50%
+			min-width 300px
+			margin auto
+			padding 20px
+			background black
+			color white
+
+.thumbnail
+	box-shadow(0 0 0 1px hsla(0,0,90%,1)) !important
+	cursor pointer
+	position relative
+	width 270px
+	overflow hidden	
+	.item-actions
+		display none
+		position absolute
+		left 20px
+		top 20px
+		z-index 100
+		button
+			position relative
+			margin-right 20px
+
+	&:hover .item-actions
+		display inline
+	&:hover
+		img
+			transition(opacity 0.2s ease-in)
+			opacity 0.35
+
+
+.categories
+	width inherit
+	li
+		a
+			margin 0 0 -1px
+			padding 8px 14px
+			border 1px solid #e5e5e5
+			[class^='icon-']
+				float right
+				margin-top 2px
+				margin-right -6px
+				opacity .25

@@ -1,0 +1,32 @@
+!!!
+html(lang="en")
+	head
+		block title
+		block meta
+			meta(charset="utf_8")
+			meta(name="viewport", content="width=device-width, initial-scale=1.0")    
+		block css
+			link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300')
+			link(rel='stylesheet', href='/lib/bootstrap-2.3.0/css/bootstrap.min.css')
+			link(rel='stylesheet', href='/lib/google-bootstrap.css')
+			link(rel='stylesheet', href='/lib/bootstrap-2.3.0/css/bootstrap-responsive.min.css')      
+			link(rel='stylesheet', href='/lib/font-awesome-3.1.1/css/font-awesome.css')
+			link(rel='stylesheet', href='/css/style.css') 
+		script.
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA_37835568_4', 'pin.gs');
+			ga('send', 'pageview');
+	body(style="zoom:1;")
+		block content
+		block js
+			script(src='/lib/jquery-1.9.1.min.js')
+			script(src='/lib/bootstrap-2.3.0/js/bootstrap.min.js')
+			script(src="/lib/json2.js")
+			script(src="/lib/underscore-min.js")
+			script(src="/lib/backbone-min.js")
+			script(src="/lib/backbone.marionette.min.js")
+			script(src="/lib/backbone.routefilter.js")

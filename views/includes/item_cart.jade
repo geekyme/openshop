@@ -1,0 +1,10 @@
+extends ../extends/item_tmpl
+
+block itemAction
+	+button('remove')
+
+block owner
+	p
+	| Created by 
+	a(href="/browse/users/#{item.ownerusername}")	
+		| #{item.owner}

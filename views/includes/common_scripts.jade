@@ -1,0 +1,50 @@
+script(src='/js/build/templates.js')
+script(src='/lib/jquery.lazyload.min.js')
+script(src='/lib/dropzone.js')
+script.
+	window.Backbone.CSRFToken = '#{csrftoken}'
+	Backbone.ajax = function() {
+	var data = {};
+	if (arguments[0].type && arguments[0].type !== "GET") {
+	arguments[0].contentType = "application/json";
+	if (arguments[0].data) {
+	if (typeof arguments[0].data === "string") {
+	data = JSON.parse(arguments[0].data);
+	} else {
+	data = arguments[0].data;
+	}
+	}
+	data["_csrf"] = Backbone.CSRFToken;
+	arguments[0].data = JSON.stringify(data);
+	}
+	return Backbone.$.ajax.apply(Backbone.$, arguments);
+	}
+
+script(src='/js/app/main.js')
+script(src='/js/app/entities/_base/models.js')
+script(src='/js/app/entities/_base/collections.js')
+script(src='/js/app/entities/item.js')
+script(src='/js/app/entities/category.js')
+
+script(src='/js/app/subapps/selector/selector_controller.js')
+script(src='/js/app/subapps/selector/selector_view.js')
+script(src='/js/app/subapps/home/home_controller.js')
+script(src='/js/app/subapps/home/home_view.js')
+script(src='/js/app/subapps/browse/browse_controller.js')
+script(src='/js/app/subapps/browse/browse_view.js')
+script(src='/js/app/subapps/browse/categories/category_controller.js')
+script(src='/js/app/subapps/browse/categories/category_view.js')
+script(src='/js/app/subapps/browse/store/store_controller.js')
+script(src='/js/app/subapps/browse/store/store_view.js')
+
+script(src='/js/app/subapps/manager/manager_controller.js')
+script(src='/js/app/subapps/manager/manager_view.js')
+script(src='/js/app/subapps/manager/create/create_view.js')
+script(src='/js/app/subapps/manager/create/create_controller.js')	
+script(src='/js/app/subapps/manager/edit/edit_view.js')
+script(src='/js/app/subapps/manager/edit/edit_controller.js')	
+
+script(src='/js/app/subapps/checkout/checkout_controller.js')
+script(src='/js/app/subapps/checkout/checkout_view.js')
+script(src='/js/app/subapps/checkout/cart/cart_controller.js')
+script(src='/js/app/subapps/checkout/cart/cart_view.js')

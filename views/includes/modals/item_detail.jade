@@ -1,0 +1,12 @@
+.modal
+	.modal-header
+		button.close(type="button", data-dismiss='modal', aria-hidden='true') &times;
+		h3= name
+	.modal-body
+		if(imgSrc && imgSrc != 'null')
+			img(width='260px', src='/img/uploads/#{imgSrc}')
+		else
+			img(width='260px', src='http://placehold.it/260x260')
+		p= desc
+	.modal-footer
+		button.btn(type='button', data-dismiss='modal', aria-hidden='true') Close

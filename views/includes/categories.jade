@@ -1,0 +1,6 @@
+ul.nav.nav-list.affix.categories
+	each category in categories
+		li
+			a(href="/browse/categories/#{category.short}")
+				| #{category.name}
+				i.icon-chevron-right

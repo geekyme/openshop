@@ -1,0 +1,34 @@
+extends ../extends/layout
+
+block append title
+	title Openshop | Browse all items, categories or stuff posted by other users
+
+block append meta
+	meta(name="keywords", content="node.js, marionette, push state, backbone, e-commerce")
+	meta(name="description", content="Openshop is an example Backbone Marionette + Node.js application with Push State enabled.")
+
+block content
+	#app.container.white_fade
+		#top
+			include ../includes/navbar
+		#main-body(style="height:auto;")
+			#browse-layout.container
+				.row-fluid
+					#shop-category.span2
+						include ../includes/categories
+					#item-container.span10
+						ul.thumbnails
+							if(items.length > 0)
+								each item in items
+									include ../includes/item_browse					
+							else
+								include ../includes/no_item		
+		#footer
+			include ../includes/footer
+		#modal.fade
+
+block append js
+	include ../includes/common_scripts	
+	script.
+		App.bootstrapItems=!{JSON.stringify(items)}
+		App.bootstrapCategories=!{JSON.stringify(categories)}

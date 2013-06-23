@@ -1,0 +1,34 @@
+extends ../extends/layout
+
+block append title
+	title Openshop | View your cart
+
+block append meta
+	meta(name="keywords", content="node.js, marionette, push state, backbone, e-commerce")
+	meta(name="description", content="Openshop is an example Backbone Marionette + Node.js application with Push State enabled.")
+
+block content
+	#app.container.white-fade
+		#top
+			include ../includes/navbar
+		#main-body(style="height:auto;")
+			#checkout-layout.container
+				.row-fluid
+					#item-container.span12
+						ul.thumbnails
+							if(items.length > 0)
+								each item in items
+									include ../includes/item_cart
+							else
+								include ../includes/no_item
+
+				.row-fluid
+					a.btn.btn-primary.checkout(href="/checkout", data-bypass) Check Out						
+		#footer
+			include ../includes/footer
+		#modal.fade
+
+block append js
+	include ../includes/common_scripts	
+	script.
+		App.bootstrapItems=!{JSON.stringify(items)}

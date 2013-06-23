@@ -1,0 +1,21 @@
+extends ../extends/layout
+
+block append title
+	title Openshop | Something Blew up
+
+block content
+
+	#app.container.white_fade
+		#top
+			include ../includes/navbar
+		#main-body
+			.landing
+				.area
+					.copy
+						h1 Something Blew Up.
+						p Rest assure that someone will get fired because of this 
+		#footer
+			include ../includes/footer
+
+block append js
+	include ../includes/common_scripts	

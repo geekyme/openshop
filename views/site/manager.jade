@@ -1,0 +1,35 @@
+extends ../extends/layout
+
+block append title
+	title Openshop | Manage your items
+
+block append meta
+	meta(name="keywords", content="node.js, marionette, push state, backbone, e-commerce")
+	meta(name="description", content="Openshop is an example Backbone Marionette + Node.js application with Push State enabled.")
+
+block content
+	#app.container.white-fade
+		#top
+			include ../includes/navbar
+		#main-body(style="height:auto;")
+			#manager-layout.container
+				.row-fluid
+					#actions.well.span12
+						a.btn.btn-success(href="/manager/create") Create Item
+						a.btn(href="/manager/edit") Edit Items
+				.row-fluid
+					#main.span12
+						ul.thumbnails
+							if(items.length > 0)
+								each item in items
+									include ../includes/item_edit		
+							else
+								include ../includes/no_item					
+		#footer
+			include ../includes/footer
+		#modal
+
+block append js
+	include ../includes/common_scripts		
+	script.
+		App.bootstrapItems=!{JSON.stringify(items)}

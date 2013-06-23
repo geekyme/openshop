@@ -1,0 +1,59 @@
+#navbar.navbar.navbar-inverse.navbar-fixed-top
+	.navbar-inner
+		.container
+			button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a.brand(href='/') Openshop
+			.nav-collapse.collapse
+				ul.nav
+					li#home
+						a(href='/') Home
+					li#browse
+						a(href='/browse') Browse
+					if(user)
+						li#manager
+							a(href='/manager') Item Manager
+					else
+						li
+							a(href='#{loginUrl}', data-bypass)
+								| Login to Sell 
+					
+				ul.nav.pull-right
+					li
+						a(href='/checkout')
+							i.icon-shopping-cart
+							|  Cart
+					li
+						if(!user)
+							a(href='#{loginUrl}', data-bypass)
+								| Login with  
+								i.icon-facebook-sign
+						else
+							a(href='/logout', data-bypass)
+								| Logout  
+								i.icon-signout
+					li.dropdown
+						a.dropdown-toggle(style="cursor:pointer;", data-toggle='dropdown', data-bypass)
+							| Resources
+							b.caret
+						ul.dropdown-menu
+							li
+								a(href='http://marionettejs.com/', target='-blank', data-bypass) Backbone Marionette
+							li
+								a(href='http://twitter.github.com/bootstrap/', target='-blank', data-bypass) Twitter Bootstrap
+							li
+								a(href='http://nodejs.org/', target='-blank', data-bypass) Node.js
+							li
+								a(href='http://expressjs.com/mongodb', target='-blank', data-bypass) Express
+							li
+								a(href='http://www.orientdb.org/', target='-blank', data-bypass) OrientDB
+							li.divider
+							li.nav-header This App
+							li
+								a(href='https://github.com/geekyme/openshop', target='-blank', data-bypass) GitHub Repository
+							li
+								a(href='https://twitter.com/shawnvoguewerks', target='-blank', data-bypass) Author's Twitter
+
+					

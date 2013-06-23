@@ -1,0 +1,17 @@
+include ../mixins/item_buttons
+
+li(id='#{item.id}')
+	.thumbnail.plain
+		.item-actions
+			block itemAction
+		if(item.imgSrc && item.imgSrc != 'null') 
+			img.lazy(width='260', height='260', src='/img/grey.gif', data-original='/img/uploads/#{item.imgSrc}')
+		else
+			img.lazy(width='260', height='260', src='/img/grey.gif', data-original='http://placehold.it/260x260')
+		.caption
+			h3= item.name
+			p: b 
+				| $ 
+				| #{item.price}
+			block owner
+			p= item.desc

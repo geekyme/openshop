@@ -1,0 +1,11 @@
+extends ../extends/item_tmpl
+
+block itemAction
+	+button('more', "/browse/items/"+item.id)
+	+button('cart')
+
+block owner
+	p
+	| Created by 
+	a(href="/browse/users/#{item.ownerusername}")	
+		| #{item.owner}
