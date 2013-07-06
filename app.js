@@ -1,3 +1,6 @@
+/* ==== Globals ==== */
+Config = require('config'); // global config object that stores all the configurations for diff parts of the app
+
 /* ==== Node.js Packages to use ==== */
 var express = require('express'); // For a full functioning web server
 var http = require('http'); // Need this to create the express server
@@ -13,25 +16,27 @@ templatizer(path.join(__dirname,'views'), path.join(__dirname,'public/js/build/t
 /* ==== Setup Express ==== */
 var app = express(); // create an instance of our express app 
 var OrientDBStore = require('connect-orientdb')(express); // to handle sessions 
-var DBConf = require('./conf/dbConf'); // store all database credentials and config here
+
+/* ==== Configure persistent session settings */
 var settings = {
     server: {
-        host: DBConf.host,
-        port: DBConf.port
+        host: Config.DB.host,
+        port: Config.DB.port
     },
     db: {
-        user_name: DBConf.username,
-        user_password: DBConf.password
+        user_name: Config.DB.username,
+        user_password: Config.DB.password
     },
-    database: DBConf.database,
-    class_name: "Session"
+    database: Config.DB.name,
+    class_name: "Session",
+    reap_interval: 30*60*1000
 };
 var sessionStore = new OrientDBStore(settings); // create a session storage in OrientDB
 /* ========================================================= */
 
 /* ==== Configure Express ==== */
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || Config.PROCESS.port);
   app.set('views', __dirname + '/views'); // folder for templating engine to look in
   app.set('view engine', 'jade'); // templating engine
   app.use(require('stylus').middleware({ src: __dirname + '/public' })); // styling engine and folder
@@ -86,12 +91,14 @@ app.configure('production', function(){
 require('./router')(app);
 /* =================*/
 
-var ProcessConf = require('./conf/processConf');
-
 /* ==== Server ==== */
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
   // drop permissions, not available on windows
-  /*process.setgid(ProcessConf.gid);
-  process.setuid(ProcessConf.uid);*/
+  if(process.env.NODE_ENV == 'production'){
+    console.log('production settings loaded');
+    process.setgid(Config.PROCESS.gid);
+    process.setuid(Config.PROCESS.uid);
+  }
+ 
 });

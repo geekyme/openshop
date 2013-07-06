@@ -1,7 +1,5 @@
-public/js/build/templates.js
 node_modules/
-_conf/
-
+config/
 #################
 ## Eclipse
 #################

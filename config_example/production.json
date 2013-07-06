@@ -1,0 +1,11 @@
+{
+  "FB": {
+    "redirecturl":"yourredirecturl"
+  },
+  "PROCESS": {
+  	"port": 2020,
+    "uid": "yourprocessuser",
+    "gid": "yourusergroup"
+  }
+}
+

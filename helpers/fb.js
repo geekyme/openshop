@@ -2,12 +2,20 @@
 
 var FB = require('fb'); // the fb sdk
 var User = require('../models/user'); // for creation & retrieval of our user 
-FB = require('../conf/fbConf')(FB); // get our fb configurations
+
+// configure the fb sdk with our own settings, loading the global object Config
+FB.options({
+		appId: process.env.FACEBOOK_APPID || Config.FB.appid,
+		appSecret: process.env.FACEBOOK_APPSECRET || Config.FB.appsecret,
+		appNamespace: process.env.FACEBOOK_APPNAMESPACE   || Config.FB.appnamespace,
+		redirectUri: process.env.FACEBOOK_REDIRECTURL || Config.FB.redirecturl
+});
 
 var async = require('async'); // for control flow
 
 // login function
 exports.loginCallback = function (req, res, next) {
+
 	// the callback link should have parameters after '?'
     var code = req.query.code;
 

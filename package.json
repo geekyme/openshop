@@ -17,6 +17,7 @@
     "stylus": ">= 0.29.x",
     "fb":"*",
     "underscore":"*",
-    "templatizer":"*"
+    "templatizer":"*",
+    "config":"0.4.x"
   }
 }

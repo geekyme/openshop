@@ -1,16 +1,15 @@
 // This database object creates a database connection and export all its methods
 
 var orientdb = require('orientdb');
-var DBConf = require('../conf/dbConf');
 
 var server = new orientdb.Server({
-    host: DBConf.host,
-    port: DBConf.port
+    host: Config.DB.host,
+    port: Config.DB.port
 });
 
-var DB = new orientdb.GraphDb("voucher", server, {
-    user_name: DBConf.username,
-    user_password: DBConf.password
+var DB = new orientdb.GraphDb(Config.DB.name, server, {
+    user_name: Config.DB.username,
+    user_password: Config.DB.password
 });
 
 DB.open(function(err) {

@@ -29,7 +29,7 @@ Install all dependencies in package.json
 ```
 npm install
 ```
-**Fill in the credentials inside /conf/**. When you are done,  run the app
+**Fill in the credentials inside /config_example/**. When you are done, rename config_example to config. Then, run the app
 ```
 node app.js
 ```

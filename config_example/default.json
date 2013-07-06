@@ -1,0 +1,19 @@
+{
+  "DB": {
+    "name": "dbname",
+    "host": "yourhost",
+    "port": 8888,
+    "username": "yourusername",
+    "password": "yourpassword"
+  },
+  "FB": {
+    "appid":"yourapp",
+    "appsecret":"yoursecret",
+    "appnamespace":"yourappname",
+    "redirecturl":"yourredirecturl"
+  },
+  "PROCESS":{
+    "port": 3030
+  }
+}
+
