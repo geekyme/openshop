@@ -35,15 +35,16 @@ node app.js
 ```
 
 ## Bugs
-* when create is clicked, will add a input tag to the dom. not deleted when view is closed. This is due to the use of Dropzone.js
-* items not stacking nicely on top of each other. Use masonry.
-* when there's only 1 item left in the cart, it does not get removed.
-* when items are requested from server, images are loaded twice! Check to see if I had accidentally render views twice.
-* Items created by one user seem to be saved errorneously as items created by another user (lol, oops)
-* Items created by one user seem to save multiple records? maybe the user click too many times. Put up notification to indicate item created. 
-FOUND THE PROBLEM: A user who just joined is not being saved into his req.session.user. When he creates an item, this generates an error. (fb.js: 51, api.js: 16, item.js: 71). 
-* Update item error:
-Cannot UPDATE the record #14:1 because the version is not the latest. Probably you are updating an old record or it has been modified by another user (db=v11 your=v0)"
+1. when create is clicked, will add a input tag to the dom. not deleted when view is closed. This is due to the use of Dropzone.js
+2. items not stacking nicely on top of each other. Use masonry.
+3. when there's only 1 item left in the cart, it does not get removed.
+4. when items are requested from server, images are loaded twice! Check to see if I had accidentally render views twice.
+5. Items created by one user seem to be saved errorneously as items created by another user (lol, oops)
+6. Items created by one user seem to save multiple records? maybe the user click too many times. Put up notification to indicate item created. 
+* FOUND THE PROBLEM: A user who just joined is not being saved into his req.session.user. When he creates an item, this generates an error. (fb.js: 51, api.js: 16, item.js: 71). 
+* Multiple clicking of the user creates multiple duplicate items (UI problem). Put up notification or redirect to home after recreation. 
+7. Update item error:
+* Cannot UPDATE the record #14:1 because the version is not the latest. Probably you are updating an old record or it has been modified by another user (db=v11 your=v0)"
 
 
 ## Todo
