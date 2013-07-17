@@ -41,10 +41,10 @@ node app.js
 4. when items are requested from server, images are loaded twice! Check to see if I had accidentally render views twice.
 5. Items created by one user seem to be saved errorneously as items created by another user (lol, oops)
 6. Items created by one user seem to save multiple records? maybe the user click too many times. Put up notification to indicate item created. 
-* FOUND THE PROBLEM: A user who just joined is not being saved into his req.session.user. When he creates an item, this generates an error. (fb.js: 51, api.js: 16, item.js: 71). 
-* Multiple clicking of the user creates multiple duplicate items (UI problem). Put up notification or redirect to home after recreation. 
+	* FOUND THE PROBLEM: A user who just joined is not being saved into his req.session.user. When he creates an item, this generates an error. (fb.js: 51, api.js: 16, item.js: 71). 
+	* Multiple clicking of the user creates multiple duplicate items (UI problem). Put up notification or redirect to home after recreation. 
 7. Update item error:
-* Cannot UPDATE the record #14:1 because the version is not the latest. Probably you are updating an old record or it has been modified by another user (db=v11 your=v0)"
+	* Cannot UPDATE the record #14:1 because the version is not the latest. Probably you are updating an old record or it has been modified by another user (db=v11 your=v0)"
 
 
 ## Todo
