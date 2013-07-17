@@ -41,7 +41,10 @@ node app.js
 * when items are requested from server, images are loaded twice! Check to see if I had accidentally render views twice.
 * Items created by one user seem to be saved errorneously as items created by another user (lol, oops)
 * Items created by one user seem to save multiple records? maybe the user click too many times. Put up notification to indicate item created. 
-FOUND THE PROBLEM: A user who just joined is not being saved into his req.session.user. When he creates an item, this generates an error. (api.js: 16, item.js: 71). 
+FOUND THE PROBLEM: A user who just joined is not being saved into his req.session.user. When he creates an item, this generates an error. (fb.js: 51, api.js: 16, item.js: 71). 
+* Update item error:
+Cannot UPDATE the record #14:1 because the version is not the latest. Probably you are updating an old record or it has been modified by another user (db=v11 your=v0)"
+
 
 ## Todo
 * payment system & checkout ? (Tried with paypal-express & doesn't suit this)
